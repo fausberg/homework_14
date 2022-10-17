@@ -4,21 +4,23 @@ import java.util.Scanner;
 
 public class Logic {
     static Scanner scanner = new Scanner(System.in);
-    public static void logic(){
+    public static int logic(){
         System.out.println("Введите 1 или 2");
         int n = scanner.nextInt();
         if(n == 1){
-            Function function = Logic::revers;
+            Function<String> function = Logic::revers;
+            String s = function.get();
             function.get();
         }else if(n == 2){
-            Function function = Logic::factorial;
+            Function<Integer> function = Logic::factorial;
             function.get();
         }else{
             System.out.println("введено неправильно число");
         }
+        return n;
     }
 
-    public static void factorial(){
+    public static int factorial(){
         System.out.println("Введите число и он посчитает факториал");
         int n = scanner.nextInt();
         int sum = 0;
@@ -26,12 +28,14 @@ public class Logic {
             sum += i;
         }
         System.out.println(sum);
+        return sum;
     }
 
-    public static void revers(){
-        System.out.println("Введите слово и оно превернёт его");
+    public static String revers(){
+        System.out.println("Введите слово");
         StringBuilder stringBuilder = new StringBuilder(scanner.nextLine());
         stringBuilder.reverse();
         System.out.println(stringBuilder);
+        return String.valueOf(stringBuilder);
     }
 }

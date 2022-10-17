@@ -2,6 +2,6 @@ package task3;
 
 @FunctionalInterface
 
-public interface Function {
-    void get();
+public interface Function<T>  {
+    T get();
 }
