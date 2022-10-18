@@ -9,11 +9,10 @@ public class Logic {
         int n = scanner.nextInt();
         if(n == 1){
             Function<String> function = Logic::revers;
-            String s = function.get();
-            function.get();
+            System.out.println(function.get());
         }else if(n == 2){
             Function<Integer> function = Logic::factorial;
-            function.get();
+            System.out.println(function.get());
         }else{
             System.out.println("введено неправильно число");
         }
@@ -27,15 +26,13 @@ public class Logic {
         for (int i = 0; i <= n; i++) {
             sum += i;
         }
-        System.out.println(sum);
         return sum;
     }
 
     public static String revers(){
+        Scanner scanner1 = new Scanner(System.in);
         System.out.println("Введите слово");
-        StringBuilder stringBuilder = new StringBuilder(scanner.nextLine());
-        stringBuilder.reverse();
-        System.out.println(stringBuilder);
+        StringBuilder stringBuilder = new StringBuilder(scanner1.nextLine()).reverse();
         return String.valueOf(stringBuilder);
     }
 }
